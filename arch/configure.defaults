@@ -905,14 +905,14 @@ DM_CC               = mpicc
 FC                  = CONFIGURE_FC
 CC                  = CONFIGURE_CC
 LD                  = $(FC)
-FFLAGS              = $(FORMAT_FREE) -Ofast -ffast-math -fPIC -Mbyteswapio -Mstack_arrays -funroll-loops -ftree-vectorize -fopenmp -march=znver3 -fveclib=AMDLIBM
-F77FLAGS            = $(FORMAT_FIXED) -Ofast -ffast-math -fPIC -Mbyteswapio -Mstack_arrays -funroll-loops -ftree-vectorize -fopenmp -march=znver3 -fveclib=AMDLIBM
+FFLAGS              = $(FORMAT_FREE) -Ofast -ffast-math -fPIC -Mbyteswapio -Mstack_arrays -funroll-loops -ftree-vectorize -fopenmp -fveclib=AMDLIBM
+F77FLAGS            = $(FORMAT_FIXED) -Ofast -ffast-math -fPIC -Mbyteswapio -Mstack_arrays -funroll-loops -ftree-vectorize -fopenmp -fveclib=AMDLIBM
 FORMAT_FREE         = -Mfreeform
 FORMAT_FIXED        = -Mfixed
 FCSUFFIX            =
 FNGFLAGS            = $(FFLAGS)
-LDFLAGS = -m64 -Ofast -Mstack_arrays -fopenmp -lomp -march=znver3 -Wl,--allow-multiple-definition -Wl,-mllvm -Wl,-enable-loop-reversal -Wl,-mllvm -Wl,-enable-gather -Wl,-mllvm -Wl,-vectorize-non-contiguous-memory-aggressively -lamdlibm
-CFLAGS              = -w -O3 -fPIC -fopenmp -march=znver3 -D_UNDERSCORE
+LDFLAGS = -m64 -Ofast -Mstack_arrays -fopenmp -lomp -Wl,--allow-multiple-definition -Wl,-mllvm -Wl,-enable-loop-reversal -Wl,-mllvm -Wl,-enable-gather -Wl,-mllvm -Wl,-vectorize-non-contiguous-memory-aggressively -lamdlibm
+CFLAGS              = -w -O3 -fPIC -fopenmp -D_UNDERSCORE
 CPP                 = /usr/bin/cpp -P -traditional
 CPPFLAGS            = -D_UNDERSCORE -DBYTESWAP -DLINUX -DIO_NETCDF -DIO_BINARY -DIO_GRIB1 -DBIT32 -DNO_SIGNAL CONFIGURE_MPI
 ARFLAGS             =
